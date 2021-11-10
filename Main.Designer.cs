@@ -164,7 +164,7 @@ namespace Lavadero
             this.btCliente.Name = "btCliente";
             this.btCliente.Size = new System.Drawing.Size(145, 33);
             this.btCliente.TabIndex = 4;
-            this.btCliente.Text = "Clientes";
+            this.btCliente.Text = "Cliente";
             this.btCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btCliente.UseVisualStyleBackColor = false;
@@ -217,9 +217,9 @@ namespace Lavadero
             // paChildForm
             // 
             this.paChildForm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("paChildForm.BackgroundImage")));
-            this.paChildForm.Location = new System.Drawing.Point(142, 0);
+            this.paChildForm.Location = new System.Drawing.Point(146, 0);
             this.paChildForm.Name = "paChildForm";
-            this.paChildForm.Size = new System.Drawing.Size(969, 466);
+            this.paChildForm.Size = new System.Drawing.Size(965, 466);
             this.paChildForm.TabIndex = 0;
             // 
             // Main

@@ -17,6 +17,6 @@ namespace Negocios
         {
             return objDatosAll.ListaTodos(todos);
         }
-
+        
     }
 }

@@ -36,7 +36,10 @@ namespace Lavadero
             this.label1 = new System.Windows.Forms.Label();
             this.dgvEstado = new System.Windows.Forms.DataGridView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.cbOrden = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,6 +58,8 @@ namespace Lavadero
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.cbOrden);
             this.panel2.Location = new System.Drawing.Point(29, 39);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(913, 100);
@@ -88,6 +93,26 @@ namespace Lavadero
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // cbOrden
+            // 
+            this.cbOrden.FormattingEnabled = true;
+            this.cbOrden.Location = new System.Drawing.Point(725, 14);
+            this.cbOrden.Name = "cbOrden";
+            this.cbOrden.Size = new System.Drawing.Size(152, 21);
+            this.cbOrden.TabIndex = 0;
+            this.cbOrden.TextChanged += new System.EventHandler(this.cbOrden_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(615, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 15);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Ordenar por";
+            // 
             // frmEstado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -103,6 +128,8 @@ namespace Lavadero
             this.Load += new System.EventHandler(this.frmEstado_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstado)).EndInit();
             this.ResumeLayout(false);
 
@@ -115,5 +142,7 @@ namespace Lavadero
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbOrden;
     }
 }
