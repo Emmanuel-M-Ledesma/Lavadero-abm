@@ -44,7 +44,39 @@ namespace Datos
             }
             return res;
         }
-        
-        
+
+
+        public DataSet listaAutos(string accion)
+        {
+            string orden = string.Empty;
+            if (accion == "listar")
+            {
+                orden = "Select * from Autos";
+
+            }
+            SqlCommand cmd = new SqlCommand(orden, conexion);
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter();
+            try
+            {
+                AbrirConexion();
+                cmd.ExecuteNonQuery();
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message, "Error");
+            }
+            finally
+            {
+                CerrarConexion();
+                cmd.Dispose();
+            }
+            return ds;
+
+        }
+
     }
 }

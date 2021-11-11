@@ -97,6 +97,10 @@ namespace Datos
             {
                 orden = "select * from Autos";
             }
+            if (lista == "cliente")
+            {
+                orden = "select * from Cliente order by DNI asc";
+            }
             SqlCommand cmd = new SqlCommand(orden, conexion);
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter();

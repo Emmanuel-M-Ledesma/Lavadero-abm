@@ -32,6 +32,8 @@ namespace Lavadero
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCarga));
             this.panel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btDel = new System.Windows.Forms.Button();
+            this.btAdd = new System.Windows.Forms.Button();
             this.txtHora = new System.Windows.Forms.TextBox();
             this.dtpDia = new System.Windows.Forms.DateTimePicker();
             this.cbAuto = new System.Windows.Forms.ComboBox();
@@ -42,8 +44,6 @@ namespace Lavadero
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvCarga = new System.Windows.Forms.DataGridView();
-            this.btAdd = new System.Windows.Forms.Button();
-            this.btDel = new System.Windows.Forms.Button();
             this.panel.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -78,6 +78,25 @@ namespace Lavadero
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(419, 374);
             this.panel2.TabIndex = 2;
+            // 
+            // btDel
+            // 
+            this.btDel.Location = new System.Drawing.Point(205, 240);
+            this.btDel.Name = "btDel";
+            this.btDel.Size = new System.Drawing.Size(75, 23);
+            this.btDel.TabIndex = 9;
+            this.btDel.Text = "Borrar";
+            this.btDel.UseVisualStyleBackColor = true;
+            // 
+            // btAdd
+            // 
+            this.btAdd.Location = new System.Drawing.Point(124, 240);
+            this.btAdd.Name = "btAdd";
+            this.btAdd.Size = new System.Drawing.Size(75, 23);
+            this.btAdd.TabIndex = 8;
+            this.btAdd.Text = "Cargar";
+            this.btAdd.UseVisualStyleBackColor = true;
+            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
             // 
             // txtHora
             // 
@@ -155,6 +174,7 @@ namespace Lavadero
             // 
             // dgvCarga
             // 
+            this.dgvCarga.AllowUserToAddRows = false;
             this.dgvCarga.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCarga.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarga.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -162,25 +182,6 @@ namespace Lavadero
             this.dgvCarga.Name = "dgvCarga";
             this.dgvCarga.Size = new System.Drawing.Size(496, 442);
             this.dgvCarga.TabIndex = 0;
-            // 
-            // btAdd
-            // 
-            this.btAdd.Location = new System.Drawing.Point(124, 240);
-            this.btAdd.Name = "btAdd";
-            this.btAdd.Size = new System.Drawing.Size(75, 23);
-            this.btAdd.TabIndex = 8;
-            this.btAdd.Text = "Cargar";
-            this.btAdd.UseVisualStyleBackColor = true;
-            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
-            // 
-            // btDel
-            // 
-            this.btDel.Location = new System.Drawing.Point(205, 240);
-            this.btDel.Name = "btDel";
-            this.btDel.Size = new System.Drawing.Size(75, 23);
-            this.btDel.TabIndex = 9;
-            this.btDel.Text = "Borrar";
-            this.btDel.UseVisualStyleBackColor = true;
             // 
             // frmCarga
             // 

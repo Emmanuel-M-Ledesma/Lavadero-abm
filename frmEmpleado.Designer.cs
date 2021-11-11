@@ -49,6 +49,7 @@ namespace Lavadero
             // 
             // dgvEmpleado
             // 
+            this.dgvEmpleado.AllowUserToAddRows = false;
             this.dgvEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEmpleado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
