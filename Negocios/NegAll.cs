@@ -17,6 +17,11 @@ namespace Negocios
         {
             return objDatosAll.ListaTodos(todos);
         }
+
+        public DataTable Combo(string lista)
+        {
+            return objDatosAll.Combo(lista);
+        }
         
     }
 }

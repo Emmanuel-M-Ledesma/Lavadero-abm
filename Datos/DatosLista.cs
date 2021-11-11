@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using Entidades;
-
-
+using System.Windows.Forms;
 
 namespace Datos
 {
@@ -60,6 +59,10 @@ namespace Datos
             {
                 orden = "select c.DNI,c.Apellido,c.Nombre,a.Marca,a.Modelo,a.Año,a.Patente from Cliente c, Autos a where c.DNI = a.DNI";
             }
+            if (todos == "Empleado")
+            {
+                orden = "select Dni, Apellido, Nombre from Empleado ";
+            }
             SqlCommand cmd = new SqlCommand(orden, conexion);
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter();
@@ -83,7 +86,40 @@ namespace Datos
             return ds;
         }
 
+        public DataTable Combo(string lista)
+        {
+            string orden = string.Empty;
+            if (lista == "empleado")
+            {
+                orden = "select * from Empleado";
+            }
+            if (lista == "auto")
+            {
+                orden = "select * from Autos";
+            }
+            SqlCommand cmd = new SqlCommand(orden, conexion);
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter();
+            try
+            {
+                AbrirConexion();
+                cmd.ExecuteNonQuery();
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+            }
+            catch (Exception e)
+            {
 
+                MessageBox.Show(e.Message, "Error");
+
+            }
+            finally
+            {
+                CerrarConexion();
+                cmd.Dispose();
+            }
+            return dt;
+        }
        
     }
 }
