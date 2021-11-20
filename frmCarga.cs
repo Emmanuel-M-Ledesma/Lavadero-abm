@@ -54,10 +54,10 @@ namespace Lavadero
         private void CargarCBE()
         {
             cbEmpleado.DataSource = objNegAll.Combo("empleado");
-            cbEmpleado.DisplayMember = "DNI";
+            cbEmpleado.DisplayMember = "NombreCompleto";
             cbEmpleado.ValueMember = "DNI";
             cbAuto.DataSource = objNegAll.Combo("auto");
-            cbAuto.DisplayMember = "Patente";
+            cbAuto.DisplayMember = "Vehiculo";
             cbAuto.ValueMember = "Patente";
         }
 
