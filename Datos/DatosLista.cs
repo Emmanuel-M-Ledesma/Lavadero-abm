@@ -91,11 +91,11 @@ namespace Datos
             string orden = string.Empty;
             if (lista == "empleado")
             {
-                orden = "select * from Empleado";
+                orden = "select DNI, concat(Apellido,' ', Nombre) as NombreCompleto from Empleado";
             }
             if (lista == "auto")
             {
-                orden = "select * from Autos";
+                orden = "select Patente, concat(Patente,', ', Marca,' ',Modelo,' ', Año ) as Vehiculo from Autos";
             }
             if (lista == "cliente")
             {
