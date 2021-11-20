@@ -17,42 +17,42 @@ namespace Datos
             string orden = string.Empty;
             if (todos == "todos")
             {
-                orden = "select C.DNI, c.Apellido,c.Nombre, a.Marca,a.Modelo,a.Año,a.Patente,l.Dia,l.hora, e.DNI from Cliente C, Autos A, Lava L, Empleado E where c.DNI = a.DNI and a.Patente = l.Patente and l.DNI = e.DNI";
+                orden = "select CONCAT(C.DNI,', ', c.Apellido,' ',c.Nombre) as DatosCliente,CONCAT(a.Marca, ' ', a.Modelo, ' ', a.Año, ', ', a.Patente) as Vehiculo,l.Dia,l.hora,CONCAT(e.DNI, ', ', e.Apellido, ' ', e.Nombre) as DatosEmpleado from Cliente C, Autos A, Lava L, Empleado E where c.DNI = a.DNI and a.Patente = l.Patente and l.DNI = e.DNI";
 
             }
             if (todos=="HA")
             {
-                orden = "select C.DNI, c.Apellido,c.Nombre, a.Marca,a.Modelo,a.Año,a.Patente,l.Dia,l.hora, e.DNI from Cliente C, Autos A, Lava L, Empleado E where c.DNI = a.DNI and a.Patente = l.Patente and l.DNI = e.DNI order by l.hora asc";
+                orden = "select CONCAT(C.DNI,', ', c.Apellido,' ',c.Nombre) as DatosCliente,CONCAT(a.Marca, ' ', a.Modelo, ' ', a.Año, ', ', a.Patente) as Vehiculo,l.Dia,l.hora,CONCAT(e.DNI, ', ', e.Apellido, ' ', e.Nombre) as DatosEmpleado from Cliente C, Autos A, Lava L, Empleado E where c.DNI = a.DNI and a.Patente = l.Patente and l.DNI = e.DNI order by l.hora asc";
 
             }
             if (todos == "HD")
             {
-                orden = "select C.DNI, c.Apellido,c.Nombre, a.Marca,a.Modelo,a.Año,a.Patente,l.Dia,l.hora, e.DNI from Cliente C, Autos A, Lava L, Empleado E where c.DNI = a.DNI and a.Patente = l.Patente and l.DNI = e.DNI order by l.hora desc";
+                orden = "select CONCAT(C.DNI,', ', c.Apellido,' ',c.Nombre) as DatosCliente,CONCAT(a.Marca, ' ', a.Modelo, ' ', a.Año, ', ', a.Patente) as Vehiculo,l.Dia,l.hora,CONCAT(e.DNI, ', ', e.Apellido, ' ', e.Nombre) as DatosEmpleado from Cliente C, Autos A, Lava L, Empleado E where c.DNI = a.DNI and a.Patente = l.Patente and l.DNI = e.DNI order by l.hora desc";
 
             }
             if (todos == "FA")
             {
-                orden = "select C.DNI, c.Apellido,c.Nombre, a.Marca,a.Modelo,a.Año,a.Patente,l.Dia,l.hora, e.DNI from Cliente C, Autos A, Lava L, Empleado E where c.DNI = a.DNI and a.Patente = l.Patente and l.DNI = e.DNI order by l.Dia asc";
+                orden = "select CONCAT(C.DNI,', ', c.Apellido,' ',c.Nombre) as DatosCliente,CONCAT(a.Marca, ' ', a.Modelo, ' ', a.Año, ', ', a.Patente) as Vehiculo,l.Dia,l.hora,CONCAT(e.DNI, ', ', e.Apellido, ' ', e.Nombre) as DatosEmpleado from Cliente C, Autos A, Lava L, Empleado E where c.DNI = a.DNI and a.Patente = l.Patente and l.DNI = e.DNI order by l.Dia asc";
 
             }
             if (todos == "FD")
             {
-                orden = "select C.DNI, c.Apellido,c.Nombre, a.Marca,a.Modelo,a.Año,a.Patente,l.Dia,l.hora, e.DNI from Cliente C, Autos A, Lava L, Empleado E where c.DNI = a.DNI and a.Patente = l.Patente and l.DNI = e.DNI order by l.Dia desc";
+                orden = "select CONCAT(C.DNI,', ', c.Apellido,' ',c.Nombre) as DatosCliente,CONCAT(a.Marca, ' ', a.Modelo, ' ', a.Año, ', ', a.Patente) as Vehiculo,l.Dia,l.hora,CONCAT(e.DNI, ', ', e.Apellido, ' ', e.Nombre) as DatosEmpleado from Cliente C, Autos A, Lava L, Empleado E where c.DNI = a.DNI and a.Patente = l.Patente and l.DNI = e.DNI order by l.Dia desc";
 
             }
             if (todos == "DP")
             {
-                orden = "select C.DNI, c.Apellido,c.Nombre, a.Marca,a.Modelo,a.Año,a.Patente,l.Dia,l.hora, e.DNI from Cliente C, Autos A, Lava L, Empleado E where c.DNI = a.DNI and a.Patente = l.Patente and l.DNI = e.DNI order by C.DNI asc";
+                orden = "select CONCAT(C.DNI,', ', c.Apellido,' ',c.Nombre) as DatosCliente,CONCAT(a.Marca, ' ', a.Modelo, ' ', a.Año, ', ', a.Patente) as Vehiculo,l.Dia,l.hora,CONCAT(e.DNI, ', ', e.Apellido, ' ', e.Nombre) as DatosEmpleado from Cliente C, Autos A, Lava L, Empleado E where c.DNI = a.DNI and a.Patente = l.Patente and l.DNI = e.DNI order by C.DNI asc";
 
             }
             if (todos == "AA")
             {
-                orden = "select C.DNI, c.Apellido,c.Nombre, a.Marca,a.Modelo,a.Año,a.Patente,l.Dia,l.hora, e.DNI from Cliente C, Autos A, Lava L, Empleado E where c.DNI = a.DNI and a.Patente = l.Patente and l.DNI = e.DNI order by c.Apellido asc";
+                orden = "select CONCAT(C.DNI,', ', c.Apellido,' ',c.Nombre) as DatosCliente,CONCAT(a.Marca, ' ', a.Modelo, ' ', a.Año, ', ', a.Patente) as Vehiculo,l.Dia,l.hora,CONCAT(e.DNI, ', ', e.Apellido, ' ', e.Nombre) as DatosEmpleado from Cliente C, Autos A, Lava L, Empleado E where c.DNI = a.DNI and a.Patente = l.Patente and l.DNI = e.DNI order by c.Apellido asc";
 
             }
             if (todos == "AD")
             {
-                orden = "select C.DNI, c.Apellido,c.Nombre, a.Marca,a.Modelo,a.Año,a.Patente,l.Dia,l.hora, e.DNI from Cliente C, Autos A, Lava L, Empleado E where c.DNI = a.DNI and a.Patente = l.Patente and l.DNI = e.DNI order by c.Apellido desc";
+                orden = "select CONCAT(C.DNI,', ', c.Apellido,' ',c.Nombre) as DatosCliente,CONCAT(a.Marca, ' ', a.Modelo, ' ', a.Año, ', ', a.Patente) as Vehiculo,l.Dia,l.hora,CONCAT(e.DNI, ', ', e.Apellido, ' ', e.Nombre) as DatosEmpleado from Cliente C, Autos A, Lava L, Empleado E where c.DNI = a.DNI and a.Patente = l.Patente and l.DNI = e.DNI order by c.Apellido desc";
 
             }
             if (todos == "ClAu")
@@ -91,11 +91,11 @@ namespace Datos
             string orden = string.Empty;
             if (lista == "empleado")
             {
-                orden = "select * from Empleado";
+                orden = "select DNI, concat(DNI,', ',Apellido,' ', Nombre) as NombreCompleto from Empleado";
             }
             if (lista == "auto")
             {
-                orden = "select * from Autos";
+                orden = "select Patente, concat(Patente,', ', Marca,' ',Modelo,' ', Año ) as Vehiculo from Autos";
             }
             if (lista == "cliente")
             {
