@@ -53,7 +53,7 @@ namespace Datos
             string orden = string.Empty;
             if (accion== "listar")
             {
-                orden = "Select * from Lava";
+                orden = "Select DNI, Patente, Dia, Hora from Lava";
                
             }
             SqlCommand cmd = new SqlCommand(orden, conexion);
