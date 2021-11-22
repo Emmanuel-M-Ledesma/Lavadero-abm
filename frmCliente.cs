@@ -126,6 +126,9 @@ namespace Lavadero
 
                     Filldgv();
                     Clean();
+                    btMod.Enabled = false;
+                    btDel.Enabled = false;
+                    btAdd.Enabled = true;
                 }
             }
         }
@@ -156,6 +159,9 @@ namespace Lavadero
 
                     Filldgv();
                     Clean();
+                    btMod.Enabled = false;
+                    btDel.Enabled = false;
+                    btAdd.Enabled = true;
                 }
             }
 
