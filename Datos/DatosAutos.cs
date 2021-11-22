@@ -42,7 +42,11 @@ namespace Datos
                     cmd.Dispose();
                 }
             }
-            return res;
+            if (accion == "modificasion")
+            {
+
+            }
+                return res;
         }
 
 
