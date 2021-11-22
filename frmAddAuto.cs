@@ -128,26 +128,7 @@ namespace Lavadero
 
         }
      
-        private void dgvAuto_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int posicion = dgvAuto.CurrentRow.Index;
-
-            if (dgvAuto[1, posicion].Value == null)
-            {
-                MessageBox.Show("Las filas no pueden estar vacias", "ERROR");
-            }
-
-            else
-            {
-                cbCliente.Text = dgvAuto[0, posicion].Value.ToString();
-                txtPat.Text = dgvAuto[1, posicion].Value.ToString();
-                txtMarca.Text = dgvAuto[2, posicion].Value.ToString();
-                txtMod.Text = dgvAuto[3, posicion].Value.ToString();
-                txtAño.Text = dgvAuto[4, posicion].Value.ToString();
-                
-                
-            }
-        }
+        
 
         //borrar
         private void btDel_Click(object sender, EventArgs e)
@@ -181,6 +162,27 @@ namespace Lavadero
                     Filldgv();
                     Clean();
                 }
+            }
+        }
+
+        private void dgvAuto_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            int posicion = dgvAuto.CurrentRow.Index;
+
+            if (dgvAuto[1, posicion].Value == null)
+            {
+                MessageBox.Show("Las filas no pueden estar vacias", "ERROR");
+            }
+
+            else
+            {
+                cbCliente.Text = dgvAuto[0, posicion].Value.ToString();
+                txtPat.Text = dgvAuto[1, posicion].Value.ToString();
+                txtMarca.Text = dgvAuto[2, posicion].Value.ToString();
+                txtMod.Text = dgvAuto[3, posicion].Value.ToString();
+                txtAño.Text = dgvAuto[4, posicion].Value.ToString();
+
+
             }
         }
     }
