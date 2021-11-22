@@ -65,6 +65,14 @@ namespace Lavadero
             objEAuto.modelo = txtMod.Text;
             objEAuto.años = int.Parse( txtAño.Text);
         }
+
+        private void TxtObjMod()
+        {
+            objECli.dni = txtDNI.Text;
+            objECli.nombre = txtNom.Text;
+            objECli.apellido = txtApel.Text;
+            
+        }
         private void Filldgv()
         {
             dgvCliente.Rows.Clear();
@@ -88,6 +96,87 @@ namespace Lavadero
             txtMod.Clear();
             txtNom.Clear();
             txtPat.Clear();
+        }
+
+        private void btDel_Click(object sender, EventArgs e)
+        {
+            if (txtDNI.Text == "" || txtNom.Text == "" || txtApel.Text == "")
+            {
+                MessageBox.Show("Los espacios no pueden estar en blanco", "ERROR");
+            }
+            else
+            {
+
+                int nmod = -1;
+                TxtObjMod();
+
+
+                nmod = objNegCli.abmCliente("baja", objECli);// invoco la capa negocio
+
+                if (nmod == -1)
+                {
+                    
+
+                }
+                else
+                {
+                    MessageBox.Show("El cliente fue borrado exitosamente.");
+
+                    Filldgv();
+                    Clean();
+                }
+            }
+        }
+
+        private void btMod_Click(object sender, EventArgs e)
+        {
+            if (txtDNI.Text == "" ||txtNom.Text == "" ||txtApel.Text == "")
+            {
+                MessageBox.Show("Los espacios no pueden estar en blanco", "ERROR");
+            }
+            else
+            {
+
+                int nmod = -1;
+                TxtObjMod();
+
+
+                nmod = objNegCli.abmCliente("modificar", objECli);// invoco la capa negocio
+
+                if (nmod == -1)
+                {
+                    MessageBox.Show("No se pudo modificar los datos del Cliente.");
+
+                }
+                else
+                {
+                    MessageBox.Show("Los datos del Cliente fueron modificados con exito.");
+
+                    Filldgv();
+                    Clean();
+                }
+            }
+
+        }
+        
+
+        private void dgvCliente_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int pos = dgvCliente.CurrentRow.Index;
+
+            if (dgvCliente[1, pos].Value == null)
+            {
+                MessageBox.Show("Las filas no pueden estar vacias", "ERROR");
+            }
+
+            else
+            {
+                txtDNI.Text = dgvCliente[0, pos].Value.ToString();
+                txtNom.Text = dgvCliente[2, pos].Value.ToString();
+                txtApel.Text = dgvCliente[1, pos].Value.ToString();             
+
+
+            }
         }
     }
 }

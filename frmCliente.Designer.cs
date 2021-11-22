@@ -183,6 +183,7 @@ namespace Lavadero
             this.btDel.TabIndex = 8;
             this.btDel.Text = "Borrar";
             this.btDel.UseVisualStyleBackColor = true;
+            this.btDel.Click += new System.EventHandler(this.btDel_Click);
             // 
             // btMod
             // 
@@ -192,6 +193,7 @@ namespace Lavadero
             this.btMod.TabIndex = 7;
             this.btMod.Text = "Modificar";
             this.btMod.UseVisualStyleBackColor = true;
+            this.btMod.Click += new System.EventHandler(this.btMod_Click);
             // 
             // btAdd
             // 
@@ -263,6 +265,7 @@ namespace Lavadero
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.Size = new System.Drawing.Size(945, 307);
             this.dgvCliente.TabIndex = 2;
+            this.dgvCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCliente_CellClick);
             // 
             // label7
             // 

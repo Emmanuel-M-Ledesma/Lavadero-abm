@@ -205,7 +205,7 @@ namespace Lavadero
             this.dgvAuto.Name = "dgvAuto";
             this.dgvAuto.Size = new System.Drawing.Size(440, 442);
             this.dgvAuto.TabIndex = 2;
-            this.dgvAuto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAuto_CellContentClick);
+            this.dgvAuto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAuto_CellClick_1);
             // 
             // label5
             // 
