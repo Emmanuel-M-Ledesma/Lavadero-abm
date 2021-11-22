@@ -67,7 +67,9 @@ namespace Datos
             }
             if (accion == "Borrar")
             {
-                orden = "delete from Empleado where DNI=@DNI ";
+                // se borra primero las claves foraneas y luego te deja borrar las primarias
+                orden = "delete from Lava where DNI=@DNI; " +
+                    "delete from Empleado where DNI=@DNI";
                 SqlCommand cmd = new SqlCommand(orden, conexion);
                 try
                 {

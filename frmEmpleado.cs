@@ -17,6 +17,7 @@ namespace Lavadero
         public NegEmpleado objNegEmpleado = new NegEmpleado();
         public Empleado objEEmpleado = new Empleado();
         public frmEmpleado()
+
         {
             InitializeComponent();
             dgvEmpleado.ColumnCount = 3;
@@ -26,6 +27,9 @@ namespace Lavadero
 
 
             Filldgv();
+            brDel.Enabled = false;
+            btMod.Enabled = false;
+            btAdd.Enabled = true;
         }
 
         private void btAdd_Click(object sender, EventArgs e)
@@ -112,6 +116,9 @@ namespace Lavadero
 
                         Filldgv();
                         Clean();
+                        btMod.Enabled = false;
+                        brDel.Enabled = false;
+                        btAdd.Enabled = true;
                     }
                 }
 
@@ -133,7 +140,9 @@ namespace Lavadero
                 txtDni.Text = dgvEmpleado[0, posicion].Value.ToString();
                 txtNombre.Text = dgvEmpleado[1, posicion].Value.ToString();
                 txtApellido.Text = dgvEmpleado[2, posicion].Value.ToString();
-                
+                brDel.Enabled = true;
+                btMod.Enabled = true;
+                btAdd.Enabled = false;
               
             }
         }
@@ -167,12 +176,20 @@ namespace Lavadero
 
                     Filldgv();
                     Clean();
+                    btMod.Enabled = false;
+                    brDel.Enabled = false;
+                    btAdd.Enabled = true;
                 }
             }
         }
 
-        
-        
+        private void btCancel_Click(object sender, EventArgs e)
+        {
+            Clean();
+            btMod.Enabled = false;
+            brDel.Enabled = false;
+            btAdd.Enabled = true;
+        }
     }
 }
     
