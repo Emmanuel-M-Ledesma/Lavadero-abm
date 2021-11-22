@@ -33,11 +33,12 @@ namespace Lavadero
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEstado));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbOrden = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvEstado = new System.Windows.Forms.DataGridView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.cbOrden = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblError = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstado)).BeginInit();
@@ -47,6 +48,7 @@ namespace Lavadero
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Controls.Add(this.lblError);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.dgvEstado);
@@ -64,6 +66,26 @@ namespace Lavadero
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(913, 100);
             this.panel2.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(615, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 15);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Ordenar por";
+            // 
+            // cbOrden
+            // 
+            this.cbOrden.FormattingEnabled = true;
+            this.cbOrden.Location = new System.Drawing.Point(725, 14);
+            this.cbOrden.Name = "cbOrden";
+            this.cbOrden.Size = new System.Drawing.Size(152, 21);
+            this.cbOrden.TabIndex = 0;
+            this.cbOrden.TextChanged += new System.EventHandler(this.cbOrden_TextChanged);
             // 
             // label1
             // 
@@ -93,25 +115,15 @@ namespace Lavadero
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // cbOrden
+            // lblError
             // 
-            this.cbOrden.FormattingEnabled = true;
-            this.cbOrden.Location = new System.Drawing.Point(725, 14);
-            this.cbOrden.Name = "cbOrden";
-            this.cbOrden.Size = new System.Drawing.Size(152, 21);
-            this.cbOrden.TabIndex = 0;
-            this.cbOrden.TextChanged += new System.EventHandler(this.cbOrden_TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(615, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Ordenar por";
+            this.lblError.AutoSize = true;
+            this.lblError.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.ForeColor = System.Drawing.Color.White;
+            this.lblError.Location = new System.Drawing.Point(305, 141);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 19);
+            this.lblError.TabIndex = 3;
             // 
             // frmEstado
             // 
@@ -144,5 +156,6 @@ namespace Lavadero
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbOrden;
+        private System.Windows.Forms.Label lblError;
     }
 }

@@ -26,12 +26,9 @@ namespace Lavadero
             dgvEstado.Columns[2].HeaderText = "Dia";
             dgvEstado.Columns[3].HeaderText = "Hora";
             dgvEstado.Columns[4].HeaderText = "Datos del empleado";
-            //dgvEstado.Columns[5].HeaderText = "Año";
-            //dgvEstado.Columns[6].HeaderText = "Patente";
-            //dgvEstado.Columns[7].HeaderText = "Dia de Ingreso";
-            //dgvEstado.Columns[8].HeaderText = "Hora de Ingreso";
-            //dgvEstado.Columns[9].HeaderText = "Dni Empleado a cargo";
+
             OrdenCb = "todos";
+            lblError.Text = "";
             Filldgv();
             Orden();
             
@@ -46,7 +43,6 @@ namespace Lavadero
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    //dgvEstado.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), Convert.ToDateTime(dr[7]).ToShortDateString(), dr[8].ToString(), dr[9].ToString());
                     dgvEstado.Rows.Add(dr[0].ToString(), dr[1].ToString(), Convert.ToDateTime(dr[2]).ToShortDateString(), dr[3].ToString(), dr[4].ToString());
 
                 }
@@ -54,7 +50,7 @@ namespace Lavadero
             }
             else
             {
-                MessageBox.Show("Error al cargar", "Error");
+                lblError.Text = "Aun no se ha cargado ningun trabajo";
             }
         }
 
