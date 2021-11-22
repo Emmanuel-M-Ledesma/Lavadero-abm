@@ -30,6 +30,8 @@ namespace Lavadero
             dgvAuto.Columns[4].HeaderText = "Año ";
 
             Filldgv();
+            btDel.Enabled = false;
+            btMod.Enabled = false;
         }
 
         private void CargarCBE()
@@ -182,8 +184,18 @@ namespace Lavadero
                 txtMod.Text = dgvAuto[3, posicion].Value.ToString();
                 txtAño.Text = dgvAuto[4, posicion].Value.ToString();
 
-
+                btDel.Enabled = true;
+                btMod.Enabled = true;
+                btAdd.Enabled = false;
             }
+        }
+
+        private void btCancel_Click(object sender, EventArgs e)
+        {
+            Clean();
+            btAdd.Enabled = true;
+            btDel.Enabled = false;
+            btMod.Enabled= false;
         }
     }
     

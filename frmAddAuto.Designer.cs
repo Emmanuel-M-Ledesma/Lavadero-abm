@@ -115,6 +115,7 @@ namespace Lavadero
             this.btCancel.TabIndex = 9;
             this.btCancel.Text = "Cancelar";
             this.btCancel.UseVisualStyleBackColor = true;
+            this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
             // 
             // btDel
             // 
