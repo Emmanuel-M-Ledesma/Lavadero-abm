@@ -32,6 +32,8 @@ namespace Lavadero
             dgvCliente.Columns[6].HeaderText = "Patente";
 
             Filldgv();
+            btMod.Enabled = false;
+            btDel.Enabled = false;
         }
 
         private void btAdd_Click(object sender, EventArgs e)
@@ -173,10 +175,20 @@ namespace Lavadero
             {
                 txtDNI.Text = dgvCliente[0, pos].Value.ToString();
                 txtNom.Text = dgvCliente[2, pos].Value.ToString();
-                txtApel.Text = dgvCliente[1, pos].Value.ToString();             
-
+                txtApel.Text = dgvCliente[1, pos].Value.ToString();
+                btMod.Enabled = true;
+                btDel.Enabled = true;
+                btAdd.Enabled = false;
 
             }
+        }
+
+        private void btCancel_Click(object sender, EventArgs e)
+        {
+            Clean();
+            btMod.Enabled = false;
+            btDel.Enabled = false;
+            btAdd.Enabled = true;
         }
     }
 }
