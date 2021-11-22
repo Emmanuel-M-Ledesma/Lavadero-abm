@@ -13,7 +13,7 @@ namespace Datos
         #region Atributos
 
         public SqlConnection conexion;
-        public string cadenaConexion = @"Data Source=DESKTOP-06KE21D\SQLSERVEREXPRESS;Initial Catalog=Lavadero;Integrated Security=True";
+        public string cadenaConexion = @"Data Source=DESKTOP-91DSLNU;Initial Catalog = Lavadero;Integrated Security=True";
 
 
         #endregion
