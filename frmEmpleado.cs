@@ -21,8 +21,8 @@ namespace Lavadero
             InitializeComponent();
             dgvEmpleado.ColumnCount = 3;
             dgvEmpleado.Columns[0].HeaderText = "Dni";
-            dgvEmpleado.Columns[1].HeaderText = "Apellido";
-            dgvEmpleado.Columns[2].HeaderText = "Nombre";
+            dgvEmpleado.Columns[1].HeaderText = "Nombre";
+            dgvEmpleado.Columns[2].HeaderText = "Apeliido";
 
 
             Filldgv();
