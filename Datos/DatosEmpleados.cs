@@ -40,8 +40,57 @@ namespace Datos
 
                 }
             }
+
+            if (accion == "Modificar")
+            {
+                orden = "update Empleado set DNI=@DNI,Nombre=@Nombre,Apellido=@Apellido where DNI=@DNI";
+                SqlCommand cmd = new SqlCommand(orden, conexion);
+                try
+                {
+                    AbrirConexion();
+                    cmd.Parameters.AddWithValue("@DNI", objEmpleado.dni);
+                    cmd.Parameters.AddWithValue("@Nombre", objEmpleado.nombre);
+                    cmd.Parameters.AddWithValue("@Apellido", objEmpleado.apellido);
+
+                    res = cmd.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message, "error");
+                }
+                finally
+                {
+                    CerrarConexion();
+                    cmd.Dispose();
+                }
+                //return res;
+            }
+            if (accion == "Borrar")
+            {
+                orden = "delete from Empleado where DNI=@DNI ";
+                SqlCommand cmd = new SqlCommand(orden, conexion);
+                try
+                {
+                    AbrirConexion();
+                    cmd.Parameters.AddWithValue("@DNI", objEmpleado.dni);
+
+                    res = cmd.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message, "error");
+                }
+                finally
+                {
+                    CerrarConexion();
+                    cmd.Dispose();
+                }
+                //return res;
+
+            }
             return res;
         }
+
 
 
 

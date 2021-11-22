@@ -81,5 +81,99 @@ namespace Lavadero
             txtDni.Clear();
             txtNombre.Clear();
         }
+
+        //Modificar
+        private void btMod_Click(object sender, EventArgs e)
+        {
+            {
+                if (txtDni.Text == "" ||
+               txtApellido.Text == "" ||
+               txtNombre.Text == "")
+                {
+                    MessageBox.Show("Los espacios no pueden estar en blanco", "ERROR");
+                }
+                else
+                {
+
+                    int nmod = -1;
+                    TxtObj();
+
+
+                    nmod = objNegEmpleado.abmEmpleado("Modificar", objEEmpleado);// invoco la capa negocio
+
+                    if (nmod == -1)
+                    {
+                        MessageBox.Show("No se pudo modificar los datos del Empleado.");
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Los datos del Empleado fueron modificados con exito.");
+
+                        Filldgv();
+                        Clean();
+                    }
+                }
+
+            }
+
+        }
+
+        private void dgvEmpleado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int posicion = dgvEmpleado.CurrentRow.Index;
+
+            if (dgvEmpleado[1, posicion].Value == null)
+            {
+                MessageBox.Show("Las filas no pueden estar vacias", "ERROR");
+            }
+
+            else
+            {
+                txtDni.Text = dgvEmpleado[0, posicion].Value.ToString();
+                txtNombre.Text = dgvEmpleado[1, posicion].Value.ToString();
+                txtApellido.Text = dgvEmpleado[2, posicion].Value.ToString();
+                
+              
+            }
+        }
+
+        //borrar
+        private void brDel_Click(object sender, EventArgs e)
+        {
+            if (txtDni.Text == "" ||
+           txtApellido.Text == "" ||
+           txtNombre.Text == "")
+            {
+                MessageBox.Show("Los espacios no pueden estar en blanco", "ERROR");
+            }
+            else
+            {
+
+                int nmod = -1;
+                TxtObj();
+
+
+                nmod = objNegEmpleado.abmEmpleado("Borrar", objEEmpleado);// invoco la capa negocio
+
+                if (nmod == -1)
+                {
+                    MessageBox.Show("No se pudo borrar los datos del Empleado.");
+
+                }
+                else
+                {
+                    MessageBox.Show("Los datos del Empleado fueron borrados con exito.");
+
+                    Filldgv();
+                    Clean();
+                }
+            }
+        }
+
+        
+        
     }
 }
+    
+
