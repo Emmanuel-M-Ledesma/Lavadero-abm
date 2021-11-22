@@ -68,10 +68,10 @@ namespace Datos
                 //return res;
 
             }
-
             if (accion == "Borrar")
             {
-                orden = "delete from Autos where Patente=@Patente";
+                orden = "delete from Lava where Patente=@Patente; " +
+                    "delete from Autos where Patente=@Patente";
                 SqlCommand cmd = new SqlCommand(orden, conexion);
                 try
                 {

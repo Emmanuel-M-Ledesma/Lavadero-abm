@@ -76,7 +76,7 @@ namespace Datos
             catch (Exception e)
             {
 
-                throw new Exception("Error al listar", e);
+               MessageBox.Show(e.Message, "Error");
             }
             finally
             {
