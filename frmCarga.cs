@@ -27,6 +27,7 @@ namespace Lavadero
             CargarCBE();
             
             txtHora.Text = DateTime.Now.ToShortTimeString();
+            
             dgvCarga.ColumnCount = 4;
             dgvCarga.Columns[0].HeaderText = "Empleado a cargo ";
             dgvCarga.Columns[1].HeaderText = "Patente del auto";
@@ -34,6 +35,9 @@ namespace Lavadero
             dgvCarga.Columns[3].HeaderText = "Hora";
             //Todo: agregar a la tabla de sql el tipo de lavado que quiera el cliente
             Filldgv();
+            cbAuto.Text = "";
+            cbEmpleado.Text = "";
+            dtpDia.Text = "";
         }
 
 
@@ -93,6 +97,14 @@ namespace Lavadero
             objELavado.dni = cbEmpleado.SelectedValue.ToString();
             objELavado.dia = dtpDia.Value;
             objELavado.hora =TimeSpan.Parse(  txtHora.Text);
+        }
+
+        private void btDel_Click(object sender, EventArgs e)
+        {
+            txtHora.Text = DateTime.Now.ToShortTimeString();
+            cbAuto.Text = "";
+            cbEmpleado.Text = "";
+            dtpDia.Text = "";
         }
 
         

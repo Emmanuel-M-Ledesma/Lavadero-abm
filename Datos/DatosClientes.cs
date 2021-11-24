@@ -74,7 +74,7 @@ namespace Datos
                     cmd.Parameters.AddWithValue("@Dni", objCliente.dni);
                     res = cmd.ExecuteNonQuery();
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     MessageBox.Show("No se pudo borrar el cliente debido a que esta relacionado con varios autos, en este caso debera ir al formulario de autos y borrar cada auto asociado al cliente", "Error");
                 }

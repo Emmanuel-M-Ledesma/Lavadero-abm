@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Datos;
-using System.Data;
 
+using System.Windows.Forms;
 
 namespace Negocios
 {
@@ -23,5 +23,6 @@ namespace Negocios
             return objDatosAll.Combo(lista);
         }
         
+       
     }
 }

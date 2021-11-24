@@ -119,6 +119,7 @@ namespace Lavadero
                         btMod.Enabled = false;
                         brDel.Enabled = false;
                         btAdd.Enabled = true;
+                        txtDni.Enabled = true;
                     }
                 }
 
@@ -126,26 +127,7 @@ namespace Lavadero
 
         }
 
-        private void dgvEmpleado_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int posicion = dgvEmpleado.CurrentRow.Index;
-
-            if (dgvEmpleado[1, posicion].Value == null)
-            {
-                MessageBox.Show("Las filas no pueden estar vacias", "ERROR");
-            }
-
-            else
-            {
-                txtDni.Text = dgvEmpleado[0, posicion].Value.ToString();
-                txtNombre.Text = dgvEmpleado[1, posicion].Value.ToString();
-                txtApellido.Text = dgvEmpleado[2, posicion].Value.ToString();
-                brDel.Enabled = true;
-                btMod.Enabled = true;
-                btAdd.Enabled = false;
-              
-            }
-        }
+       
 
         //borrar
         private void brDel_Click(object sender, EventArgs e)
@@ -179,6 +161,7 @@ namespace Lavadero
                     btMod.Enabled = false;
                     brDel.Enabled = false;
                     btAdd.Enabled = true;
+                    txtDni.Enabled = false;
                 }
             }
         }
@@ -189,6 +172,68 @@ namespace Lavadero
             btMod.Enabled = false;
             brDel.Enabled = false;
             btAdd.Enabled = true;
+            txtDni.Enabled = true;
+        }
+
+        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                errorProvider1.SetError(txtDni, "Solo se admiten numeros");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+                errorProvider1.SetError(txtApellido, "No se admiten numeros");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) )
+            {
+                e.Handled = true;
+                errorProvider1.SetError(txtNombre, "No se admiten numeros");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void dgvEmpleado_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int posicion = dgvEmpleado.CurrentRow.Index;
+
+            if (dgvEmpleado[1, posicion].Value == null)
+            {
+                MessageBox.Show("Las filas no pueden estar vacias", "ERROR");
+            }
+
+            else
+            {
+                txtDni.Text = dgvEmpleado[0, posicion].Value.ToString();
+                txtNombre.Text = dgvEmpleado[1, posicion].Value.ToString();
+                txtApellido.Text = dgvEmpleado[2, posicion].Value.ToString();
+                brDel.Enabled = true;
+                btMod.Enabled = true;
+                btAdd.Enabled = false;
+                txtDni.Enabled = false;
+
+            }
         }
     }
 }

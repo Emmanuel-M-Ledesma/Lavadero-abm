@@ -128,6 +128,8 @@ namespace Lavadero
                     btAdd.Enabled = true;
                     btDel.Enabled = false;
                     btMod.Enabled = false;
+                    txtPat.Enabled = true;
+                    cbCliente.Enabled = true;
                 }
             }
 
@@ -169,6 +171,8 @@ namespace Lavadero
                     btAdd.Enabled = true;
                     btDel.Enabled = false;
                     btMod.Enabled = false;
+                    txtPat.Enabled = true;
+                    cbCliente.Enabled = true;
                 }
             }
         }
@@ -193,6 +197,9 @@ namespace Lavadero
                 btDel.Enabled = true;
                 btMod.Enabled = true;
                 btAdd.Enabled = false;
+                txtPat.Enabled = false;
+                cbCliente.Enabled = false;
+                
             }
         }
 
@@ -202,6 +209,8 @@ namespace Lavadero
             btAdd.Enabled = true;
             btDel.Enabled = false;
             btMod.Enabled= false;
+            txtPat.Enabled = true;
+            cbCliente.Enabled = true;
         }
     }
     

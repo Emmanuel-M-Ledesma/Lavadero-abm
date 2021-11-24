@@ -100,6 +100,11 @@ namespace Datos
             if (lista == "cliente")
             {
                 orden = "select * from Cliente order by DNI asc";
+
+            }
+            if (lista == "DNI")
+            {
+                orden = "exec pa_Empleado '%' ";
             }
             SqlCommand cmd = new SqlCommand(orden, conexion);
             DataTable dt = new DataTable();
@@ -124,6 +129,8 @@ namespace Datos
             }
             return dt;
         }
-       
+
+
+     
     }
 }

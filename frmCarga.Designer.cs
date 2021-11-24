@@ -85,8 +85,9 @@ namespace Lavadero
             this.btDel.Name = "btDel";
             this.btDel.Size = new System.Drawing.Size(75, 23);
             this.btDel.TabIndex = 9;
-            this.btDel.Text = "Borrar";
+            this.btDel.Text = "Actualizar";
             this.btDel.UseVisualStyleBackColor = true;
+            this.btDel.Click += new System.EventHandler(this.btDel_Click);
             // 
             // btAdd
             // 
@@ -127,6 +128,7 @@ namespace Lavadero
             this.cbEmpleado.Name = "cbEmpleado";
             this.cbEmpleado.Size = new System.Drawing.Size(210, 21);
             this.cbEmpleado.TabIndex = 4;
+
             // 
             // label4
             // 
@@ -151,18 +153,18 @@ namespace Lavadero
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(25, 98);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 13);
+            this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Patente del auto";
+            this.label2.Text = "Auto";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(25, 55);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 13);
+            this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Apellido empleado";
+            this.label1.Text = "Empleado";
             // 
             // panel1
             // 

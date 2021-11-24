@@ -117,7 +117,7 @@ namespace Lavadero
 
                 if (nmod == -1)
                 {
-                    
+
 
                 }
                 else
@@ -129,6 +129,11 @@ namespace Lavadero
                     btMod.Enabled = false;
                     btDel.Enabled = false;
                     btAdd.Enabled = true;
+                    txtDNI.Enabled = true;
+                    txtMar.Enabled = true;
+                    txtMod.Enabled = true;
+                    txtAño.Enabled = true;
+                    txtPat.Enabled = true;
                 }
             }
         }
@@ -162,6 +167,11 @@ namespace Lavadero
                     btMod.Enabled = false;
                     btDel.Enabled = false;
                     btAdd.Enabled = true;
+                    txtDNI.Enabled = true;
+                    txtMar.Enabled = true;
+                    txtMod.Enabled = true;
+                    txtAño.Enabled = true;
+                    txtPat.Enabled = true;
                 }
             }
 
@@ -185,6 +195,11 @@ namespace Lavadero
                 btMod.Enabled = true;
                 btDel.Enabled = true;
                 btAdd.Enabled = false;
+                txtDNI.Enabled = false;
+                txtMar.Enabled = false;
+                txtMod.Enabled = false;
+                txtAño.Enabled = false;
+                txtPat.Enabled = false;
 
             }
         }
@@ -195,6 +210,63 @@ namespace Lavadero
             btMod.Enabled = false;
             btDel.Enabled = false;
             btAdd.Enabled = true;
+            txtDNI.Enabled = true;
+            txtMar.Enabled = true;
+            txtMod.Enabled = true;
+            txtAño.Enabled = true;
+            txtPat.Enabled = true;
+        }
+
+        private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                errorProvider1.SetError(txtDNI, "Solo se admiten numeros");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void txtApel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+                errorProvider1.SetError(txtApel, "No se admiten numeros");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void txtNom_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+                errorProvider1.SetError(txtNom, "No se admiten numeros");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void txtAño_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+                errorProvider1.SetError(txtAño, "Solo se admiten numeros");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
         }
     }
 }
