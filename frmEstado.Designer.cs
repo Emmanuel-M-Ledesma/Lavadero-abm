@@ -34,12 +34,12 @@ namespace Lavadero
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblError = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbOrden = new System.Windows.Forms.ComboBox();
-            this.dgvEstado = new System.Windows.Forms.DataGridView();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label7 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.cbOrden = new System.Windows.Forms.ComboBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.dgvEstado = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstado)).BeginInit();
@@ -79,6 +79,18 @@ namespace Lavadero
             this.panel2.Size = new System.Drawing.Size(913, 100);
             this.panel2.TabIndex = 2;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(12, 52);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(382, 26);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "En este formulario podemos ver los trabajos que figuran disponibles para realizar" +
+    "\r\n y lo que ya están realizados.\r\n";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -90,6 +102,18 @@ namespace Lavadero
             this.label2.TabIndex = 1;
             this.label2.Text = "Ordenar por";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(15, 17);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(159, 24);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Planilla de Estado";
+            // 
             // cbOrden
             // 
             this.cbOrden.FormattingEnabled = true;
@@ -98,6 +122,10 @@ namespace Lavadero
             this.cbOrden.Size = new System.Drawing.Size(152, 21);
             this.cbOrden.TabIndex = 0;
             this.cbOrden.TextChanged += new System.EventHandler(this.cbOrden_TextChanged);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // dgvEstado
             // 
@@ -111,34 +139,6 @@ namespace Lavadero
             this.dgvEstado.Name = "dgvEstado";
             this.dgvEstado.Size = new System.Drawing.Size(913, 265);
             this.dgvEstado.TabIndex = 0;
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(12, 52);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(382, 26);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "En este formulario podemos ver los trabajos que figuran disponibles para realizar" +
-    "\r\n y lo que ya están realizados.\r\n";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(15, 17);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(159, 24);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Planilla de Estado";
             // 
             // frmEstado
             // 
@@ -165,7 +165,6 @@ namespace Lavadero
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dgvEstado;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label2;
@@ -173,5 +172,6 @@ namespace Lavadero
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView dgvEstado;
     }
 }

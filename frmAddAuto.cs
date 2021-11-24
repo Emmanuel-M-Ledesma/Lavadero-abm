@@ -97,11 +97,7 @@ namespace Lavadero
         //Modificar
         private void btMod_Click(object sender, EventArgs e)
         {
-            if (txtAño .Text == "" ||
-           txtMarca .Text == "" ||
-           txtMod.Text == "" ||
-           txtPat.Text == "" ||
-           cbCliente.Text == "")
+            if (txtAño .Text == "" ||txtMarca .Text == "" ||txtMod.Text == "" ||txtPat.Text == "" ||cbCliente.Text == "")
             {
                 MessageBox.Show("Los espacios no pueden estar en blanco", "ERROR");
             }
@@ -134,17 +130,13 @@ namespace Lavadero
             }
 
         }
-     
+        
         
 
         //borrar
         private void btDel_Click(object sender, EventArgs e)
         {
-            if (txtAño.Text == "" ||
-           txtMarca.Text == "" ||
-           txtMod.Text == "" ||
-           txtPat.Text == "" ||
-           cbCliente.Text == "")
+            if (txtAño.Text == "" ||txtMarca.Text == "" ||txtMod.Text == "" ||txtPat.Text == "" ||cbCliente.Text == "")
             {
                 MessageBox.Show("Los espacios no pueden estar en blanco", "ERROR");
             }
