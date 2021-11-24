@@ -29,6 +29,7 @@ namespace Lavadero
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCliente));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
@@ -52,9 +53,12 @@ namespace Lavadero
             this.txtApel = new System.Windows.Forms.TextBox();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.dgvCliente = new System.Windows.Forms.DataGridView();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -151,6 +155,7 @@ namespace Lavadero
             this.txtAño.Name = "txtAño";
             this.txtAño.Size = new System.Drawing.Size(100, 20);
             this.txtAño.TabIndex = 12;
+            this.txtAño.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAño_KeyPress);
             // 
             // txtMod
             // 
@@ -174,6 +179,7 @@ namespace Lavadero
             this.btCancel.TabIndex = 9;
             this.btCancel.Text = "Cancelar";
             this.btCancel.UseVisualStyleBackColor = true;
+            this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
             // 
             // btDel
             // 
@@ -183,6 +189,7 @@ namespace Lavadero
             this.btDel.TabIndex = 8;
             this.btDel.Text = "Borrar";
             this.btDel.UseVisualStyleBackColor = true;
+            this.btDel.Click += new System.EventHandler(this.btDel_Click);
             // 
             // btMod
             // 
@@ -192,6 +199,7 @@ namespace Lavadero
             this.btMod.TabIndex = 7;
             this.btMod.Text = "Modificar";
             this.btMod.UseVisualStyleBackColor = true;
+            this.btMod.Click += new System.EventHandler(this.btMod_Click);
             // 
             // btAdd
             // 
@@ -236,6 +244,7 @@ namespace Lavadero
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(100, 20);
             this.txtNom.TabIndex = 2;
+            this.txtNom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNom_KeyPress);
             // 
             // txtApel
             // 
@@ -243,6 +252,7 @@ namespace Lavadero
             this.txtApel.Name = "txtApel";
             this.txtApel.Size = new System.Drawing.Size(100, 20);
             this.txtApel.TabIndex = 1;
+            this.txtApel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApel_KeyPress);
             // 
             // txtDNI
             // 
@@ -250,6 +260,7 @@ namespace Lavadero
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(100, 20);
             this.txtDNI.TabIndex = 0;
+            this.txtDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDNI_KeyPress);
             // 
             // dgvCliente
             // 
@@ -263,15 +274,35 @@ namespace Lavadero
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.Size = new System.Drawing.Size(945, 307);
             this.dgvCliente.TabIndex = 2;
+            this.dgvCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCliente_CellClick);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(12, 4);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(168, 24);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Planilla de Clientes";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 9);
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(210, 12);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(97, 13);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Plantilla de clientes";
+            this.label7.Size = new System.Drawing.Size(534, 13);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "En este formulario podremos realizar la carga, modificación y el borrado de los d" +
+    "atos de los clientes del lavadero.";
             // 
             // frmCliente
             // 
@@ -281,6 +312,7 @@ namespace Lavadero
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(969, 466);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvCliente);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -290,6 +322,7 @@ namespace Lavadero
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,10 +348,12 @@ namespace Lavadero
         private System.Windows.Forms.TextBox txtApel;
         private System.Windows.Forms.TextBox txtDNI;
         private System.Windows.Forms.DataGridView dgvCliente;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtPat;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label11;
     }
 }

@@ -42,6 +42,59 @@ namespace Datos
                     cmd.Dispose();
                 }
             }
+            if (accion == "Modificar")
+            {
+                orden = "update Autos set Marca=@Marca,Modelo=@Modelo,Año=@Año where Patente=@Patente";
+                SqlCommand cmd = new SqlCommand(orden, conexion);
+                try
+                {
+                    AbrirConexion();
+                    cmd.Parameters.AddWithValue("@Marca", objAuto.marca);
+                    cmd.Parameters.AddWithValue("@Modelo", objAuto.modelo);
+                    cmd.Parameters.AddWithValue("@Año", objAuto.años);
+                    cmd.Parameters.AddWithValue("@Patente", objAuto.patente);
+
+                    res = cmd.ExecuteNonQuery();
+                }
+                catch (Exception e) 
+                {
+                    MessageBox.Show(e.Message, "error");
+                }
+                finally
+                {
+                    CerrarConexion();
+                    cmd.Dispose();
+                }
+                //return res;
+
+            }
+            if (accion == "Borrar")
+            {
+                orden = "delete from Lava where Patente=@Patente; " +
+                    "delete from Autos where Patente=@Patente";
+                SqlCommand cmd = new SqlCommand(orden, conexion);
+                try
+                {
+                    AbrirConexion();
+                    cmd.Parameters.AddWithValue("@Patente", objAuto.patente);
+
+                    res = cmd.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message, "error");
+                }
+                finally
+                {
+                    CerrarConexion();
+                    cmd.Dispose();
+                }
+                //return res;
+
+            }
+
+
+
             return res;
         }
 

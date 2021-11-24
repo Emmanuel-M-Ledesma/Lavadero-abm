@@ -32,6 +32,8 @@ namespace Lavadero
             dgvCliente.Columns[6].HeaderText = "Patente";
 
             Filldgv();
+            btMod.Enabled = false;
+            btDel.Enabled = false;
         }
 
         private void btAdd_Click(object sender, EventArgs e)
@@ -65,6 +67,14 @@ namespace Lavadero
             objEAuto.modelo = txtMod.Text;
             objEAuto.años = int.Parse( txtAño.Text);
         }
+
+        private void TxtObjMod()
+        {
+            objECli.dni = txtDNI.Text;
+            objECli.nombre = txtNom.Text;
+            objECli.apellido = txtApel.Text;
+            
+        }
         private void Filldgv()
         {
             dgvCliente.Rows.Clear();
@@ -88,6 +98,175 @@ namespace Lavadero
             txtMod.Clear();
             txtNom.Clear();
             txtPat.Clear();
+        }
+
+        private void btDel_Click(object sender, EventArgs e)
+        {
+            if (txtDNI.Text == "" || txtNom.Text == "" || txtApel.Text == "")
+            {
+                MessageBox.Show("Los espacios no pueden estar en blanco", "ERROR");
+            }
+            else
+            {
+
+                int nmod = -1;
+                TxtObjMod();
+
+
+                nmod = objNegCli.abmCliente("baja", objECli);// invoco la capa negocio
+
+                if (nmod == -1)
+                {
+
+
+                }
+                else
+                {
+                    MessageBox.Show("El cliente fue borrado exitosamente.");
+
+                    Filldgv();
+                    Clean();
+                    btMod.Enabled = false;
+                    btDel.Enabled = false;
+                    btAdd.Enabled = true;
+                    txtDNI.Enabled = true;
+                    txtMar.Enabled = true;
+                    txtMod.Enabled = true;
+                    txtAño.Enabled = true;
+                    txtPat.Enabled = true;
+                }
+            }
+        }
+
+        private void btMod_Click(object sender, EventArgs e)
+        {
+            if (txtDNI.Text == "" ||txtNom.Text == "" ||txtApel.Text == "")
+            {
+                MessageBox.Show("Los espacios no pueden estar en blanco", "ERROR");
+            }
+            else
+            {
+
+                int nmod = -1;
+                TxtObjMod();
+
+
+                nmod = objNegCli.abmCliente("modificar", objECli);// invoco la capa negocio
+
+                if (nmod == -1)
+                {
+                    MessageBox.Show("No se pudo modificar los datos del Cliente.");
+
+                }
+                else
+                {
+                    MessageBox.Show("Los datos del Cliente fueron modificados con exito.");
+
+                    Filldgv();
+                    Clean();
+                    btMod.Enabled = false;
+                    btDel.Enabled = false;
+                    btAdd.Enabled = true;
+                    txtDNI.Enabled = true;
+                    txtMar.Enabled = true;
+                    txtMod.Enabled = true;
+                    txtAño.Enabled = true;
+                    txtPat.Enabled = true;
+                }
+            }
+
+        }
+        
+
+        private void dgvCliente_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int pos = dgvCliente.CurrentRow.Index;
+
+            if (dgvCliente[1, pos].Value == null)
+            {
+                MessageBox.Show("Las filas no pueden estar vacias", "ERROR");
+            }
+
+            else
+            {
+                txtDNI.Text = dgvCliente[0, pos].Value.ToString();
+                txtNom.Text = dgvCliente[2, pos].Value.ToString();
+                txtApel.Text = dgvCliente[1, pos].Value.ToString();
+                btMod.Enabled = true;
+                btDel.Enabled = true;
+                btAdd.Enabled = false;
+                txtDNI.Enabled = false;
+                txtMar.Enabled = false;
+                txtMod.Enabled = false;
+                txtAño.Enabled = false;
+                txtPat.Enabled = false;
+
+            }
+        }
+
+        private void btCancel_Click(object sender, EventArgs e)
+        {
+            Clean();
+            btMod.Enabled = false;
+            btDel.Enabled = false;
+            btAdd.Enabled = true;
+            txtDNI.Enabled = true;
+            txtMar.Enabled = true;
+            txtMod.Enabled = true;
+            txtAño.Enabled = true;
+            txtPat.Enabled = true;
+        }
+
+        private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                errorProvider1.SetError(txtDNI, "Solo se admiten numeros");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void txtApel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+                errorProvider1.SetError(txtApel, "No se admiten numeros");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void txtNom_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+                errorProvider1.SetError(txtNom, "No se admiten numeros");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void txtAño_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+                errorProvider1.SetError(txtAño, "Solo se admiten numeros");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
         }
     }
 }

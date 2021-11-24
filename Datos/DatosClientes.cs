@@ -40,6 +40,50 @@ namespace Datos
                     cmd.Dispose();
                 }
             }
+            if (accion =="modificar")
+            {
+                orden = "update Cliente set Nombre= @Nombre, Apellido = @Apellido where DNI = @Dni";
+                SqlCommand cmd = new SqlCommand(orden, conexion);
+                try
+                {
+                    AbrirConexion();
+                    cmd.Parameters.AddWithValue("@Dni", objCliente.dni);
+                    cmd.Parameters.AddWithValue("@Nombre", objCliente.nombre);
+                    cmd.Parameters.AddWithValue("@Apellido", objCliente.apellido);
+                    res = cmd.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message, "Error");
+                    
+                }
+                finally
+                {
+                    CerrarConexion();
+                    cmd.Dispose();
+                }
+            }
+            if (accion=="baja")
+            {
+                orden = "delete from Autos where DNI = @Dni; " +
+                    "delete from Cliente where DNI = @Dni;";
+                SqlCommand cmd = new SqlCommand(orden, conexion);
+                try
+                {
+                    AbrirConexion();
+                    cmd.Parameters.AddWithValue("@Dni", objCliente.dni);
+                    res = cmd.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("No se pudo borrar el cliente debido a que esta relacionado con varios autos, en este caso debera ir al formulario de autos y borrar cada auto asociado al cliente", "Error");
+                }
+                finally
+                {
+                    CerrarConexion();
+                    cmd.Dispose();
+                }
+            }
             return res;
         }
 
